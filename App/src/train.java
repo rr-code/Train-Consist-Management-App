@@ -6,32 +6,24 @@ public class train {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // Create ArrayList for Passenger Bogies
-        List<String> passengerBogies = new ArrayList<>();
+        // 🔹 Create LinkedHashSet for Train Formation
+        LinkedHashSet<String> trainFormation = new LinkedHashSet<>();
 
-        // 🔹 Add Bogies
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        // 🔹 Add Bogies (Insertion Order Preserved)
+        trainFormation.add("Engine");
+        trainFormation.add("Sleeper");
+        trainFormation.add("Cargo");
+        trainFormation.add("Guard");
 
-        System.out.println("\nAfter Adding Bogies:");
-        System.out.println(passengerBogies);
+        // 🔹 Attempt to add duplicate
+        trainFormation.add("Sleeper"); // duplicate (ignored)
 
-        // 🔹 Remove a Bogie (AC Chair)
-        passengerBogies.remove("AC Chair");
+        // 🔹 Display Formation
+        System.out.println("\nFinal Train Formation (Ordered & Unique):");
+        System.out.println(trainFormation);
 
-        System.out.println("\nAfter Removing 'AC Chair':");
-        System.out.println(passengerBogies);
+        System.out.println("\nTotal Bogies: " + trainFormation.size());
 
-        // 🔹 Check if Sleeper exists
-        boolean exists = passengerBogies.contains("Sleeper");
-
-        System.out.println("\nIs 'Sleeper' present? " + exists);
-
-        // 🔹 Final State
-        System.out.println("\nFinal Passenger Bogie List:");
-        System.out.println(passengerBogies);
-
-        System.out.println("\nSystem ready for further operations...");
+        System.out.println("\nSystem preserves order and prevents duplicates.");
     }
 }
